@@ -111,7 +111,9 @@ function coinFlip() {
   //we will use the Math.random to give us the posibility of heads or tails
   //wich is fixed for both (0.5)
     x = Math.random();
-    if (x =)
-    return "heads" || "tails"
-   
+    if (x < 0.5) {
+      return "heads"
+    } else {
+      return "tails"
+    }   
 }
