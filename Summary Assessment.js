@@ -203,3 +203,72 @@ function replaceDigit(string) {
  })
   return str.join("");
 }
+//=============================================================================
+/*                                  Q7                                       */
+//=============================================================================
+//Using recursion, write a function called arraySum that takes an array of numbers as parameter
+// and returns the sum of all numbers in the array except the last one.
+// arraySum([1, 2, 3, 4, 5, 6]) ==> 15
+// arraySum([1, 2, 4]) ==>   3
+
+function arraySum(array, i) {
+    i = i || 0;
+    if (i === array.length-1) {
+        return 0;
+    } else {
+        return array[i] + arraySum(array, i + 1);
+    }
+}
+
+//=============================================================================
+/*                                  Q8                                   */
+//=============================================================================
+//Depending on data modeling concept that you have learned:
+// create a factory function called makeProfile that return object  has the following properties:
+//  "name" with a string value
+//  "age" with a number value
+//  "knowsJavascript" with a boolean value
+//  "pets" with an array value
+
+
+function makeProfile(name, age, knowsJavascript, pets) {
+  return {
+    name: name,
+    age: age,
+    knowsJavascript: true,
+    pets: pets
+  }
+}
+
+
+// write function displayProfile that can be used to display one profile.
+// write function displayProfilePets that can be used to display all the elements inside pets array.
+// myProfile =  {
+// name : "Sahar",
+// age : 30,
+// knowsJavascript :true,
+// pets : ["Pandacat", "SashaGoat"]
+// };
+
+// displayProfile (myProfile) ===>   name : "Sahar"
+//                                   age : 30
+//                                   knowsJavascript :true
+//                                   pets : ["Pandacat"]
+
+//  displayProfilePets (myProfile)  ===> Pandacat,SashaGoat
+
+var myProfile = makeProfile("Sahar", 30, true, ["Pandacat","SashaGoat"])
+function displayProfile(argument) {
+for(var key in argument) {
+ return "name : " + argument.name + "\n" + "age : "+argument.age + "\n" + "knowsJavascript : "+ argument.knowsJavascript+"\n"+"pets : "+argument.pets
+   }
+}
+
+function displayProfilePets(argument) {
+    var result = argument.pets;
+    var display = result[0];
+    for(var i = 1; i < result.length; i++) {
+     display =  display+","+result[i] 
+    }
+    return display;
+}
