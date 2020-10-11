@@ -117,3 +117,89 @@ function coinFlip() {
       return "tails"
     }   
 }
+
+
+//=============================================================================
+/*                              Q4                                           */
+//=============================================================================
+// Write a function called assignStudnetID that takes an array of students’ names, a starting number,
+//and an optional 3rd argument. This function should return a new array of objects,
+//each with a `name` property (students’ name), and an `id` property.
+// Each student should get an ID code starting from `11000`,and increment by the optional 3rd parameter.
+
+// Things to consider:
+//  If a 3rd argument is not provided, increment by 1 for each student.
+// var students = ["Aleen Y. Atkins", "Alvaro L. Angelos", "Denese Dossett", "Douglas Denney"];
+
+// var firstArray = assignStudnetID(students, 11000);
+// var secondArray = assignStudnetID(students, 11000, 12);
+
+// firstArray[0]; // {name: 'Aleen Y. Atkins', id: 11000};
+// firstArray[1]; // {name: 'Alvaro L. Angelos', id: 11001};
+
+// secondArray[0]; // {name: 'Aleen Y. Atkins', id: 11000};
+// secondArray[1]; // {name: 'Alvaro L. Angelos', id: 11012};
+// secondArray[2]; // {name: 'Denese Dossett', id: 11024};
+
+// TODO: your code here
+
+function assignStudnetID(names, number, arg ){
+  //declare a new empty array to return results
+  //declare a new empty object
+  var arr =[];
+  var object;
+  if (arg === undefined) {
+    arg = 1;
+  } 
+  for (var i = 0; i < names.length; i++) { 
+    //the new object will be declared each iteration over the array
+    object = {name: "", id: 0}; //object was declared inside loop to avoid getting the last array value only
+    object.name = names[i];
+    //check i value to start from the given number 
+    if (i === 0) {
+      number = number
+      //increase number by arg each iteration
+    } else {
+      number = number + arg;
+    }
+    object.id = number;
+    // console.log(object);
+    arr.push(object)
+  }
+  return arr;
+}
+
+//=============================================================================
+/*                                  Q5                                         */
+//=============================================================================
+//Write a function called lastNElements that takes two Parameters as an input,  an array of numbers  and a number n,
+// and returns a new array with the last n elements only.
+//solve it using one of the most appropriate helperthe helpers functions(each,map,filter).
+// lastNElements( [1,2,3,4],2 ) ==> [3,4]
+// lastNElements( [9,2,3,4,6],1) ==> [6]
+// lastNElements( [], 3 ) ==> []
+// lastNElements( [5,6,8,9,12], 9 ) ==> [5,6,8,9,12]
+
+function lastNElements(array, n) {
+  return filter(array, function(element, i) {
+   return  i >= array.length-n
+  })
+}
+//=============================================================================
+/*                                  Q6                                        */
+//=============================================================================
+//Write a function called replaceDigit that takes a string as input and returns new string
+//after replace first digit in the string (should contains at least digit) with & character.
+//replaceDigit("abc1dabc") ==> abc&dabc
+//replaceDigit("p3ython") ==> p&ython
+
+function replaceDigit(string) {
+  var str =string.split("")
+  var att = "0123456789"
+  each(str, function(element, i) {
+  if(att.match(element)) {
+    str[i] = "&"
+  } 
+ })
+  return str.join("");
+}
