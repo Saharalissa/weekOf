@@ -240,7 +240,6 @@ function makeProfile(name, age, knowsJavascript, pets) {
   }
 }
 
-
 // write function displayProfile that can be used to display one profile.
 // write function displayProfilePets that can be used to display all the elements inside pets array.
 // myProfile =  {
@@ -271,4 +270,56 @@ function displayProfilePets(argument) {
      display =  display+","+result[i] 
     }
     return display;
+}
+
+//=============================================================================
+/*                                  Q9                                     */
+//=============================================================================
+/*
+  Create a ReadingList class by using OOP concept, where:
+  Your class should has:
+  "read" for the number of books that finish reading
+  "unRead" for the number of books that still not read
+  "toRead" array for the books names that want to read in the future
+  "currentRead" for the name of the book that is reading currently
+  "readBooks" Array of the names of books that finish read
+  "AddBook" function that:
+  a- Accept the book name as parameter
+  b- Add the new book to "toRead" array
+  c- Increment the number of the unread books.
+  "finishCurrentBook" function that:
+  a- Add the "currentRead" to the "readBooks" array
+  b- Increment the "read" books
+  c- Change the "currentRead" to be the first book from "toRead" array
+  d- Decrement the number of "unread" books
+  */
+
+// Now, to make sure that you are actually reading, make a comment below this and type: Yes I am
+
+//yes I am
+
+// Write your code here .....
+function ReadingList() {
+  var obj ={};
+
+  obj.read = 0;
+  obj.unread= 0;
+  obj.toread= [];
+  obj.currentread= "";
+  obj.readBooks= [];
+  obj.AddBook= AddBook;
+  obj.finishCurrentBook= finishCurrentBook;
+  return obj;
+}
+
+var AddBook = function (book){
+  this.toread.push(book)
+  this.unread = this.unread + 1
+}
+
+var finishCurrentBook= function (){
+  this.readBooks= this.readBooks.push(this.currentread);
+  this.read = this.read + 1;
+  this.currentread = this.toread[0];
+  this.unread = this.unread - 1;
 }
